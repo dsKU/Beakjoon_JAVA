@@ -45,6 +45,7 @@ public class beakjoon2169 {
         
         
         System.out.println(ans);
+        sc.close();
     }
 }
 
