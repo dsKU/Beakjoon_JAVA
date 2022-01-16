@@ -1,3 +1,4 @@
+package BinarySearch;
 import java.io.*;
 import java.util.*;
 
@@ -39,10 +40,10 @@ public class beakjoon1920 {
         while(left <= right){
             int mid = (left + right) >> 1;
             if(val[mid] < n){
-                left = mid+1;
+                left = mid + 1;
             }
             else if(val[mid] > n){
-                right = mid;
+                right = mid - 1;
             }
             else{
                 return true;
