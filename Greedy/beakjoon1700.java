@@ -1,3 +1,4 @@
+package Greedy;
 import java.io.*;
 import java.util.*;
 
@@ -33,7 +34,7 @@ public class beakjoon1700 {
         ArrayList<Integer> list = new ArrayList<>();
 
         int ans = 0;
-        Integer max_ = 0;
+        Integer max_ = 0;   //저장된 오브젝트 값을 삭제해야 하기 때문에 Integer형
         for(int i = 1; i <= M; i++){
             for(int j = 0; j < list.size();j++){
                 int temp = list.get(j)-1;
