@@ -1,3 +1,4 @@
+package Greedy;
 import java.io.*;
 import java.util.*;
 
@@ -40,7 +41,6 @@ public class beakjoon1202 {
         int idx = 0;
     
         for(int i = 0 ; i < M; i++){
-            
             for(int j = idx; j < N; j++){
                 if(bag[i] >= jewelry_[j][0]){
                     pq.add(jewelry_[j][1]);
