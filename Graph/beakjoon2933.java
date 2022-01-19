@@ -130,7 +130,7 @@ public class beakjoon2933 {
     }
 
 }
-
+/*
 class point{
     public int x,y;
 
@@ -139,3 +139,4 @@ class point{
         this.x = x;
     }
 }
+*/
