@@ -1,3 +1,4 @@
+package PriorityQueue;
 import java.io.*;
 import java.util.*;
 
@@ -65,9 +66,9 @@ public class beakjoon13334 {
             if(dist > d) continue;
             if(point[i][1] > right){
                 while(!leftQ.isEmpty()){
-                    if(leftQ.peek()[0] + d >= point[i][1]){  
+                    if(leftQ.peek()[0] + d >= point[i][1])
                         break;
-                    }
+                    
                     leftQ.poll();
                 }
             }
