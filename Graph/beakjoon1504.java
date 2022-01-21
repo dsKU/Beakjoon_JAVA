@@ -1,3 +1,4 @@
+package Graph;
 import java.io.*;
 import java.util.*;
 
@@ -5,12 +6,10 @@ public class beakjoon1504 {
     static int N,M, v1,v2;
     static int[][] map;
     static int[] min_;
-    static boolean[] visited;
     static int MAX_VAL = 10000000;
 
     static void Dijkstra(int start){
         Arrays.fill(min_, MAX_VAL);
-        Arrays.fill(visited, false);
         PriorityQueue<Node> pQ = new PriorityQueue<>();
         min_[start] = 0;
         pQ.offer(new Node(start,0));
@@ -39,7 +38,6 @@ public class beakjoon1504 {
         //
         map = new int[N+1][N+1];
         min_ = new int[N+1];
-        visited = new boolean[N+1];
 
         for(int i = 1 ; i <= N; i++)
             Arrays.fill(map[i], MAX_VAL);
@@ -90,7 +88,7 @@ class Node implements Comparable<Node>{
         return this.b - o.b;
     }
 }
-/*abstract
+/*test case
 800 799
 1 800 1000
 2 3 1000
