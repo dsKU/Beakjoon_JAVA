@@ -1,3 +1,4 @@
+package Graph;
 import java.io.*;
 import java.util.*;
 
@@ -30,10 +31,10 @@ public class beakjoon1916 {
             
         }
         Arrays.fill(visited, false);
-
+        min_[from] = 0;
         visited[from] = true;
         int idx = -1;
-        min_[from] = 0;
+        
         while((idx = get_idx())!=-1){
             visited[idx] = true;
             
@@ -72,7 +73,7 @@ public class beakjoon1916 {
         System.out.println(min_[to]);
     }
 }
-/*abstract
+/*
 5
 8
 1 2 2
