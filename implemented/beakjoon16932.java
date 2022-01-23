@@ -14,8 +14,8 @@ public class beakjoon16932 {
     static int[] dx = {-1,0,1,0};
     static int[] dy = {0,1,0,-1};
     static ArrayList<Integer> val;
-    static ArrayList<point> zero_arr;
-    static ArrayList<point> arr;
+    static ArrayList<point16932> zero_arr;
+    static ArrayList<point16932> arr;
     static int DFS(int x, int y, int idx, int cnt){
         map[x][y] = idx;
         cnt ++;
@@ -41,25 +41,25 @@ public class beakjoon16932 {
 
         map = new int[N][M];
         val = new ArrayList<Integer>(); val.add(0); val.add(0);
-        zero_arr = new ArrayList<point>();
-        arr = new ArrayList<point>();
+        zero_arr = new ArrayList<point16932>();
+        arr = new ArrayList<point16932>();
 
         for(int i = 0; i < N; i++){
             st = new StringTokenizer(br.readLine());
             for(int j = 0; j <M; j++){
                 map[i][j] = Integer.parseInt(st.nextToken());
                 if(map[i][j] == 0){
-                    zero_arr.add(new point(i,j));
+                    zero_arr.add(new point16932(i,j));
                 }
                 else{
-                    arr.add(new point(i,j));
+                    arr.add(new point16932(i,j));
                 }
             }
         }
 
         int ans = 0;
         int idx = 2;
-        for(point p : arr){             //각 떨어진 무리들 idx업데이트
+        for(point16932 p : arr){             //각 떨어진 무리들 idx업데이트
             if(map[p.x][p.y] == 1){                    
                 val.add(DFS(p.x, p.y, idx, 0));
                 idx++;
@@ -67,7 +67,7 @@ public class beakjoon16932 {
 
         }
         
-        for(point p : zero_arr){                  // 0일 떄 중복없이 주변 것들 더해서 최대값 구하기         
+        for(point16932 p : zero_arr){                  // 0일 떄 중복없이 주변 것들 더해서 최대값 구하기         
                 HashSet<Integer> set = new HashSet();
                 
                 int temp = 0;        
@@ -91,10 +91,10 @@ public class beakjoon16932 {
     }
 }
 
-class point{
+class point16932{
     public int x;
     public int y;
-    public point(int x, int y){
+    public point16932(int x, int y){
         this.x = x;
         this.y = y;
     }

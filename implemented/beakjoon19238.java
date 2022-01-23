@@ -9,9 +9,9 @@ public class beakjoon19238 {
     static int[][] map_ori;
     static int[][] map;
 
-    static ArrayList<point> person;
-    static ArrayList<point> goal;
-    static point car;
+    static ArrayList<point19238> person;
+    static ArrayList<point19238> goal;
+    static point19238 car;
     static int max_value = 401;
     static int[] dy = {0, 1, 0, -1};
     static int[] dx = {-1, 0, 1, 0};
@@ -29,7 +29,7 @@ public class beakjoon19238 {
         }
         
     }
-    public static void DFS(point p){
+    public static void DFS(point19238 p){
         map = new int[N+1][N+1];
         for(int i= 1 ; i <= N;i ++){
             for(int j= 1 ; j <= N;j ++){
@@ -42,11 +42,11 @@ public class beakjoon19238 {
         
     public static void main(String[] args) throws Exception {
         input();
-        point g = car;
+        point19238 g = car;
         
         while(!person.isEmpty()){
             DFS(g);
-            for(point p :person){
+            for(point19238 p :person){
                 if(map[p.y][p.x] == 401){
                     System.out.println(-1);
                     return;
@@ -56,8 +56,8 @@ public class beakjoon19238 {
             int min_ = 0;
             
             for(int i = 1; i < person.size(); i++){
-                point p = person.get(i);
-                point m = person.get(min_);
+                point19238 p = person.get(i);
+                point19238 m = person.get(min_);
                 if(map[m.y][m.x] == map[p.y][p.x]){     //거리가 같을 때 우선순위
                     if(m.y == p.y){
                         min_ = m.x > p.x ? i : min_;
@@ -71,12 +71,12 @@ public class beakjoon19238 {
                 }
             }
 
-            point m = person.get(min_);
+            point19238 m = person.get(min_);
             m = person.get(min_);
             oil -= map[m.y][m.x];
     
             DFS(m);
-            for(point p : goal){
+            for(point19238 p : goal){
                 if(map[p.y][p.x] == 401){
                     System.out.println(-1);
                     return;
@@ -132,7 +132,7 @@ public class beakjoon19238 {
         st = new StringTokenizer(br.readLine());
         int car_y = Integer.parseInt(st.nextToken());
         int car_x = Integer.parseInt(st.nextToken());
-        car = new point(car_y,car_x);
+        car = new point19238(car_y,car_x);
         for(int i = 1 ; i <= M ; i++){
             st = new StringTokenizer(br.readLine());
             int y = Integer.parseInt(st.nextToken());
@@ -140,8 +140,8 @@ public class beakjoon19238 {
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
 
-            person.add(new point(y, x));
-            goal.add(new point(a, b));
+            person.add(new point19238(y, x));
+            goal.add(new point19238(a, b));
             
         }
         
@@ -153,10 +153,10 @@ public class beakjoon19238 {
 
 
 
-class point{
+class point19238{
     public int x;
     public int y;
-    public point(int y, int x){
+    public point19238(int y, int x){
         this.x = x;
         this.y = y;
     }
