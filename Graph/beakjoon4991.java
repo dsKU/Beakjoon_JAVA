@@ -5,9 +5,9 @@ import java.io.*;
 public class beakjoon4991 {
     static int [][][]map;
     static int W,H;
-    static point robot;
-    static ArrayList<point> position;
-    static ArrayList<point> wall;
+    static point1162 robot;
+    static ArrayList<point1162> position;
+    static ArrayList<point1162> wall;
     static int[][] arr ;
     static boolean visited[] ;
     static int ans;
@@ -33,11 +33,11 @@ public class beakjoon4991 {
                 Arrays.fill(map[idx][i], 401);
             }
             
-            for(point p : wall){            //벽 설정
+            for(point1162 p : wall){            //벽 설정
                 map[idx][p.y][p.x] = -1;
             }
             
-            point p = position.get(idx);
+            point1162 p = position.get(idx);
             DFS(idx, p.y, p.x ,0);
             
         }
@@ -75,13 +75,13 @@ public class beakjoon4991 {
                 for(int j = 0 ; j < W; j++){
                     char ch = str.charAt(j);
                     if(ch == 'o'){
-                        robot = new point(i, j);
+                        robot = new point1162(i, j);
                     }
                     else if(ch == 'x'){
-                        wall.add(new point(i, j));
+                        wall.add(new point1162(i, j));
                     }
                     else if(ch == '*'){
-                        position.add(new point(i, j));
+                        position.add(new point1162(i, j));
                     }
                 }
             }
@@ -99,7 +99,7 @@ public class beakjoon4991 {
 
             for(int i = 0 ; i< map_idx; i++){       // 위치에 대한 거리를 그리드로 설정
                 for(int j = 0 ; j < map_idx; j++){
-                    point p = position.get(j);
+                    point1162 p = position.get(j);
                     arr[i][j] = map[i][p.y][p.x];
                     if(arr[i][j] == 401) ans = -1;
                 }
@@ -120,10 +120,10 @@ public class beakjoon4991 {
     }
 }
 
-class point{
+class point1162{
     public int x;
     public int y;
-    public point(int y,int x){
+    public point1162(int y,int x){
         this.y = y;
         this.x = x;
     }
