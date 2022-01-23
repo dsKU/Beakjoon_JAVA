@@ -12,21 +12,21 @@ public class beakjoon6087 {
     static void Dijkstra(){
         map[point.get(0)[0]][point.get(0)[1]] = 0;  //시작점 초기화
 
-        PriorityQueue<Node> pq = new PriorityQueue<>();
-        pq.add(new Node(point.get(0)[0], point.get(0)[1] , 0 , -1));
+        PriorityQueue<Node6087> pq = new PriorityQueue<>();
+        pq.add(new Node6087(point.get(0)[0], point.get(0)[1] , 0 , -1));
 
         while(!pq.isEmpty()){
-            Node node = pq.poll();
+            Node6087 Node6087 = pq.poll();
             for(int i =0  ; i < 4; i++){
-                int cy = node.a + dy[i];
-                int cx = node.b + dx[i];
+                int cy = Node6087.a + dy[i];
+                int cx = Node6087.b + dx[i];
                 if(cx >= N || cx < 0 || cy >= M || cy < 0 || map[cy][cx] == -1) continue;
                 
-                int next = node.d == i ? node.c : node.c + 1;
+                int next = Node6087.d == i ? Node6087.c : Node6087.c + 1;
 
                 if(map[cy][cx] >= next){
                     map[cy][cx] = next;
-                    pq.add(new Node(cy, cx, next, i));
+                    pq.add(new Node6087(cy, cx, next, i));
                 }
                 
             }
@@ -73,16 +73,16 @@ public class beakjoon6087 {
 
     }
 }
-class Node implements Comparable<Node>{
+class Node6087 implements Comparable<Node6087>{
     int a,b,c,d;
-    public Node(int a, int b, int c, int d) {
+    public Node6087(int a, int b, int c, int d) {
         this.a = a; // x
         this.b = b; // y
         this.c = c; // cnt
         this.d = d; // direction
     }
     @Override
-    public int compareTo(Node o){
+    public int compareTo(Node6087 o){
         return this.c - o.c;
     }
 }

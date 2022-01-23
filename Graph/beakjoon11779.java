@@ -11,19 +11,19 @@ public class beakjoon11779 {
 
     static void Dijkstra(int start){
         Arrays.fill(min_, MAX_VAL);
-        PriorityQueue<Node> pQ = new PriorityQueue<>();
+        PriorityQueue<Node11779> pQ = new PriorityQueue<>();
         min_[start] = 0;
-        pQ.offer(new Node(start,0));
+        pQ.offer(new Node11779(start,0));
 
         while(!pQ.isEmpty()){
-            Node node = pQ.poll();
-            if(min_[node.a] < node.b) continue;
+            Node11779 Node11779 = pQ.poll();
+            if(min_[Node11779.a] < Node11779.b) continue;
 
             for(int i =1; i <= N; i++){
-                if(min_[i] > min_[node.a] + map[node.a][i]){
-                    min_[i] = min_[node.a]+ map[node.a][i];
-                    path[i] = node.a;   //이전 정점 업데이트 
-                    pQ.offer(new Node(i, min_[i]));
+                if(min_[i] > min_[Node11779.a] + map[Node11779.a][i]){
+                    min_[i] = min_[Node11779.a]+ map[Node11779.a][i];
+                    path[i] = Node11779.a;   //이전 정점 업데이트 
+                    pQ.offer(new Node11779(i, min_[i]));
                 }
             }
         }
@@ -73,16 +73,16 @@ public class beakjoon11779 {
         }
     }
 }
-class Node implements Comparable<Node>{
+class Node11779 implements Comparable<Node11779>{
     int a;
     long b;
-    Node(int a, long b){
+    Node11779(int a, long b){
         this.a = a;
         this.b = b;
     }
 
     @Override
-    public int compareTo(Node o) {
+    public int compareTo(Node11779 o) {
         if(this.b - o.b > 0) return 1;
         else return -1;
     }

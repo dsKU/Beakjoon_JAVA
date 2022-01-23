@@ -7,21 +7,21 @@ public class beakjoon1753 {
     static int E;
     static int start;
     static int[] min_;
-    static ArrayList<Node>[] arr;
+    static ArrayList<Node1753>[] arr;
 
     static void Dijkstra(){
-        PriorityQueue<Node> pQ = new PriorityQueue<>();
+        PriorityQueue<Node1753> pQ = new PriorityQueue<>();
 
-        pQ.offer(new Node(start,0));
+        pQ.offer(new Node1753(start,0));
 
         while(!pQ.isEmpty()){
-            Node node = pQ.poll();
-            if(min_[node.a] < node.b) continue;
+            Node1753 Node1753 = pQ.poll();
+            if(min_[Node1753.a] < Node1753.b) continue;
 
-            for(Node n : arr[node.a]){
-                if(min_[n.a] > min_[node.a]+n.b){
-                    min_[n.a] = min_[node.a]+n.b;
-                    pQ.offer(new Node(n.a, min_[n.a]));
+            for(Node1753 n : arr[Node1753.a]){
+                if(min_[n.a] > min_[Node1753.a]+n.b){
+                    min_[n.a] = min_[Node1753.a]+n.b;
+                    pQ.offer(new Node1753(n.a, min_[n.a]));
                 }
                 
             }
@@ -49,7 +49,7 @@ public class beakjoon1753 {
             int b = sc.nextInt(); 
             int c = sc.nextInt();
             
-            arr[a].add(new Node(b,c));
+            arr[a].add(new Node1753(b,c));
         }
 
         Dijkstra();
@@ -64,16 +64,16 @@ public class beakjoon1753 {
     }
 }
 
-class Node implements Comparable<Node>{
+class Node1753 implements Comparable<Node1753>{
     int a;
     int b;
-    Node(int a, int b){
+    Node1753(int a, int b){
         this.a = a;
         this.b = b;
     }
 
     @Override
-    public int compareTo(Node o) {
+    public int compareTo(Node1753 o) {
         return this.b - o.b;
     }
 }

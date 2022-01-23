@@ -10,18 +10,18 @@ public class beakjoon9370 {
     static int[] dist_g;
     static int[] dist_h;
     static void solve(int start, int[] dist){
-        PriorityQueue<Node> pq = new PriorityQueue<>();
-        pq.add(new Node(start, 0));
+        PriorityQueue<Node9370> pq = new PriorityQueue<>();
+        pq.add(new Node9370(start, 0));
         dist[start] = 0;
 
         while(!pq.isEmpty()){
-            Node node = pq.poll();
+            Node9370 Node9370 = pq.poll();
 
-            if(dist[node.a] < node.b) continue;
+            if(dist[Node9370.a] < Node9370.b) continue;
             for(int i = 1; i <= N; i++){
-                if(dist[i] > node.b + graph[node.a][i]){
-                    dist[i] = node.b + graph[node.a][i];
-                    pq.add(new Node(i, dist[i]));
+                if(dist[i] > Node9370.b + graph[Node9370.a][i]){
+                    dist[i] = Node9370.b + graph[Node9370.a][i];
+                    pq.add(new Node9370(i, dist[i]));
                 }
             }
         }
@@ -83,16 +83,16 @@ public class beakjoon9370 {
     }
 }
 
-class Node implements Comparable<Node>{
+class Node9370 implements Comparable<Node9370>{
     int a;
     int b;
-    Node(int a, int b){
+    Node9370(int a, int b){
         this.a = a;
         this.b = b;
     }
 
     @Override
-    public int compareTo(Node o) {
+    public int compareTo(Node9370 o) {
         return this.b - o.b;
     }
 }

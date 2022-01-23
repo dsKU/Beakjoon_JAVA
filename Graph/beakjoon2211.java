@@ -4,26 +4,26 @@ import java.util.*;
 
 public class beakjoon2211 {
     static int N,M,K;
-    static ArrayList<Node>[] list;
+    static ArrayList<Node2211>[] list;
     static int[][] dist;
     static int[] min_;
     static int[] index;
 
     static void solve(){
-        PriorityQueue<Node> pq = new PriorityQueue<>();
+        PriorityQueue<Node2211> pq = new PriorityQueue<>();
 
         index[1] = 0;
         min_[1] = 0;
-        pq.add(new Node(1,0));
+        pq.add(new Node2211(1,0));
 
         while(!pq.isEmpty()){
-            Node node = pq.poll();
-            if(node.b > min_[node.a]) continue;
+            Node2211 Node2211 = pq.poll();
+            if(Node2211.b > min_[Node2211.a]) continue;
             for(int i =  1 ; i <= N; i++){
-                if(min_[i] > node.b + dist[node.a][i]){
-                    min_[i] = node.b + dist[node.a][i];
-                    index[i] = node.a;
-                    pq.add(new Node(i, min_[i]));
+                if(min_[i] > Node2211.b + dist[Node2211.a][i]){
+                    min_[i] = Node2211.b + dist[Node2211.a][i];
+                    index[i] = Node2211.a;
+                    pq.add(new Node2211(i, min_[i]));
                 }
             }
         }
@@ -72,14 +72,14 @@ public class beakjoon2211 {
         System.out.println(sb);
     }
 }
-class Node implements Comparable<Node>{
+class Node2211 implements Comparable<Node2211>{
     int a,b;
-    public Node(int b, int c) {
+    public Node2211(int b, int c) {
         this.a = b;
         this.b = c;
     }
     @Override
-    public int compareTo(Node o){
+    public int compareTo(Node2211 o){
         return this.b - o.b;
     }
 }

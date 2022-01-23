@@ -1,17 +1,18 @@
+package Graph;
 import java.io.*;
 import java.util.*;
 
-class Node implements Comparable<Node>{
+class Node10217 implements Comparable<Node10217>{
     int to;
     int time;
     int cost;
-    public Node(int a, int b, int c) {
+    public Node10217(int a, int b, int c) {
         this.to = a;
         this.time = b;
         this.cost = c;
     }
     @Override
-    public int compareTo(Node o){
+    public int compareTo(Node10217 o){
         return this.time - o.time;
     }
 }
@@ -20,25 +21,25 @@ class Node implements Comparable<Node>{
 public class beakjoon10217 {
     static int N,C,K;
     static int s,g,h;
-    static ArrayList<Node>[] graph;
+    static ArrayList<Node10217>[] graph;
     static int[][] cost;
     static void solve(){
-        PriorityQueue<Node> pq = new PriorityQueue<>();
-        pq.add(new Node(1, 0, 0));
+        PriorityQueue<Node10217> pq = new PriorityQueue<>();
+        pq.add(new Node10217(1, 0, 0));
 
         cost[1][0] = 0;
 
         while(!pq.isEmpty()){
-            Node node = pq.poll();
+            Node10217 Node10217 = pq.poll();
 
-            if(cost[node.to][node.cost] < node.time) continue;
+            if(cost[Node10217.to][Node10217.cost] < Node10217.time) continue;
 
-            for(Node n : graph[node.to]){
-                int cost_ = node.cost + n.cost;
+            for(Node10217 n : graph[Node10217.to]){
+                int cost_ = Node10217.cost + n.cost;
                 if(cost_ > C) continue;
-                if(cost[n.to][cost_] > n.time + node.time){
-                    cost[n.to][cost_] = n.time + node.time;
-                    pq.add(new Node(n.to, cost[n.to][cost_], cost_));
+                if(cost[n.to][cost_] > n.time + Node10217.time){
+                    cost[n.to][cost_] = n.time + Node10217.time;
+                    pq.add(new Node10217(n.to, cost[n.to][cost_], cost_));
                 }
             }
         }
@@ -71,7 +72,7 @@ public class beakjoon10217 {
                 int b = Integer.parseInt(st.nextToken());
                 int c = Integer.parseInt(st.nextToken());
                 int d = Integer.parseInt(st.nextToken());
-                graph[a].add(new Node(b, d, c));
+                graph[a].add(new Node10217(b, d, c));
             }
 
             solve();

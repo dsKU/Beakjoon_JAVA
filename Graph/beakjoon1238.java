@@ -4,8 +4,8 @@ import java.util.*;
 
 public class beakjoon1238 {
     static int N,M, K;
-    static ArrayList<Node>[] map;
-    static ArrayList<Node>[] map2;
+    static ArrayList<Node1238>[] map;
+    static ArrayList<Node1238>[] map2;
     static int[] min_;
     static int[] min_2;
     static int MAX_VAL = 10000000;
@@ -13,16 +13,16 @@ public class beakjoon1238 {
     static void Dijkstra1(int start){
         Arrays.fill(min_, MAX_VAL);
         min_[start] = 0;
-        PriorityQueue<Node> pq = new PriorityQueue<>();
+        PriorityQueue<Node1238> pq = new PriorityQueue<>();
         
-        pq.add(new Node(start,0));
+        pq.add(new Node1238(start,0));
         while(!pq.isEmpty()){
-            Node node = pq.poll();
-            if(min_[node.a] < node.b) continue;
-            for(Node n : map[node.a]){
-                if(min_[n.a] > min_[node.a]+n.b){
-                    min_[n.a] = min_[node.a]+n.b;
-                    pq.offer(new Node(n.a, min_[n.a]));
+            Node1238 Node1238 = pq.poll();
+            if(min_[Node1238.a] < Node1238.b) continue;
+            for(Node1238 n : map[Node1238.a]){
+                if(min_[n.a] > min_[Node1238.a]+n.b){
+                    min_[n.a] = min_[Node1238.a]+n.b;
+                    pq.offer(new Node1238(n.a, min_[n.a]));
                 }
             }
         }
@@ -32,16 +32,16 @@ public class beakjoon1238 {
         Arrays.fill(min_2, MAX_VAL);
         min_2[start] = 0;
 
-        PriorityQueue<Node> pq = new PriorityQueue<>();
+        PriorityQueue<Node1238> pq = new PriorityQueue<>();
         
-        pq.add(new Node(start,0));
+        pq.add(new Node1238(start,0));
         while(!pq.isEmpty()){
-            Node node = pq.poll();
-            if(min_2[node.a] < node.b) continue;
-            for(Node n : map2[node.a]){
-                if(min_2[n.a] > min_2[node.a]+n.b){
-                    min_2[n.a] = min_2[node.a]+n.b;
-                    pq.offer(new Node(n.a, min_2[n.a]));
+            Node1238 Node1238 = pq.poll();
+            if(min_2[Node1238.a] < Node1238.b) continue;
+            for(Node1238 n : map2[Node1238.a]){
+                if(min_2[n.a] > min_2[Node1238.a]+n.b){
+                    min_2[n.a] = min_2[Node1238.a]+n.b;
+                    pq.offer(new Node1238(n.a, min_2[n.a]));
                 }
             }
         }
@@ -69,8 +69,8 @@ public class beakjoon1238 {
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
             int c = Integer.parseInt(st.nextToken());
-            map[a].add(new Node(b,c));
-            map2[b].add(new Node(a,c)); // 간선을 역으로 줘서 저장
+            map[a].add(new Node1238(b,c));
+            map2[b].add(new Node1238(a,c)); // 간선을 역으로 줘서 저장
         }
         Dijkstra1(K);   // K 에서 집으로 돌아가는 거리들
         Dijkstra2(K);   // k로 가는 거리들
@@ -83,16 +83,16 @@ public class beakjoon1238 {
     }
 }
 
-class Node implements Comparable<Node>{
+class Node1238 implements Comparable<Node1238>{
     int a;
     int b;
-    Node(int a, int b){
+    Node1238(int a, int b){
         this.a = a;
         this.b = b;
     }
 
     @Override
-    public int compareTo(Node o) {
+    public int compareTo(Node1238 o) {
         return this.b - o.b;
     }
 }

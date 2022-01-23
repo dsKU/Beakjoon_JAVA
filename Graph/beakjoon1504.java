@@ -10,18 +10,18 @@ public class beakjoon1504 {
 
     static void Dijkstra(int start){
         Arrays.fill(min_, MAX_VAL);
-        PriorityQueue<Node> pQ = new PriorityQueue<>();
+        PriorityQueue<Node1504> pQ = new PriorityQueue<>();
         min_[start] = 0;
-        pQ.offer(new Node(start,0));
+        pQ.offer(new Node1504(start,0));
 
         while(!pQ.isEmpty()){
-            Node node = pQ.poll();
-            if(min_[node.a] < node.b) continue;
+            Node1504 Node1504 = pQ.poll();
+            if(min_[Node1504.a] < Node1504.b) continue;
 
             for(int i =1; i <= N; i++){
-                if(min_[i] > min_[node.a] + map[node.a][i]){
-                    min_[i] = min_[node.a]+ map[node.a][i];
-                    pQ.offer(new Node(i, min_[i]));
+                if(min_[i] > min_[Node1504.a] + map[Node1504.a][i]){
+                    min_[i] = min_[Node1504.a]+ map[Node1504.a][i];
+                    pQ.offer(new Node1504(i, min_[i]));
                 }
             }
         }
@@ -75,16 +75,16 @@ public class beakjoon1504 {
     }
 }
 
-class Node implements Comparable<Node>{
+class Node1504 implements Comparable<Node1504>{
     int a;
     int b;
-    Node(int a, int b){
+    Node1504(int a, int b){
         this.a = a;
         this.b = b;
     }
 
     @Override
-    public int compareTo(Node o) {
+    public int compareTo(Node1504 o) {
         return this.b - o.b;
     }
 }

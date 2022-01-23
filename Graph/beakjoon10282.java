@@ -4,21 +4,21 @@ import java.util.*;
 
 public class beakjoon10282 {
     static int T, N, D, C;
-    static ArrayList<Node>[] list;
+    static ArrayList<Node10282>[] list;
     static int[] min_;
     static void Dijkstra(int start){
         min_[start] = 0;
-        PriorityQueue<Node> pq = new PriorityQueue<>();
-        pq.add(new Node(start, 0));
+        PriorityQueue<Node10282> pq = new PriorityQueue<>();
+        pq.add(new Node10282(start, 0));
 
         while(!pq.isEmpty()){
-            Node node = pq.poll();
-            if(node.b > min_[node.a]) continue;
+            Node10282 Node10282 = pq.poll();
+            if(Node10282.b > min_[Node10282.a]) continue;
 
-            for(Node n : list[node.a]){
-                 if(min_[n.a] > node.b + n.b ){
-                     min_[n.a] = node.b + n.b;
-                     pq.add(new Node(n.a, min_[n.a]));
+            for(Node10282 n : list[Node10282.a]){
+                 if(min_[n.a] > Node10282.b + n.b ){
+                     min_[n.a] = Node10282.b + n.b;
+                     pq.add(new Node10282(n.a, min_[n.a]));
                  }
             }
         }
@@ -48,7 +48,7 @@ public class beakjoon10282 {
                 int b = Integer.parseInt(st.nextToken());
                 int c = Integer.parseInt(st.nextToken());
 
-                list[b].add(new Node(a,c)); //의존성이라 두 개 바뀌어야 함
+                list[b].add(new Node10282(a,c)); //의존성이라 두 개 바뀌어야 함
             }
             Dijkstra(C);
             int cnt = 0;
@@ -65,14 +65,14 @@ public class beakjoon10282 {
     }
 }
 
-class Node implements Comparable<Node>{
+class Node10282 implements Comparable<Node10282>{
     int a,b;
-    public Node(int b, int c) {
+    public Node10282(int b, int c) {
         this.a = b;
         this.b = c;
     }
     @Override
-    public int compareTo(Node o){
+    public int compareTo(Node10282 o){
         return this.b - o.b;
     }
 }
