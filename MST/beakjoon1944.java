@@ -1,3 +1,4 @@
+package MST;
 import java.io.*;
 import java.util.*;
 
@@ -95,3 +96,8 @@ class Node1944 implements Comparable<Node1944>{
     }
 
 }
+/*test case
+
+https://www.acmicpc.net/board/view/73348
+
+*/
