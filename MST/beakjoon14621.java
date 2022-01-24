@@ -4,22 +4,22 @@ import java.util.*;
 //prim MST
 public class beakjoon14621 {
     static int N,M;
-    static ArrayList<Node1197>[] graph;
+    static ArrayList<Node14621>[] graph;
     static boolean[] visited;
     static boolean[] univ;
 
     static int solve(){
         int ret = 0;
-        PriorityQueue<Node1197> pq = new PriorityQueue<>();
-        pq.add(new Node1197(1,0));
+        PriorityQueue<Node14621> pq = new PriorityQueue<>();
+        pq.add(new Node14621(1,0));
         
         while(!pq.isEmpty()){
-            Node1197 node = pq.poll();
+            Node14621 node = pq.poll();
             if(visited[node.to]) continue;
             visited[node.to] = true;
             ret += node.val;
 
-            for(Node1197 n : graph[node.to]){
+            for(Node14621 n : graph[node.to]){
                 if(visited[n.to]) continue;
                 pq.add(n);
             }
@@ -55,8 +55,8 @@ public class beakjoon14621 {
             int c = Integer.parseInt(st.nextToken());
 
             if(univ[a] == univ[b]) continue;
-            graph[a].add(new Node1197(b, c));
-            graph[b].add(new Node1197(a, c));
+            graph[a].add(new Node14621(b, c));
+            graph[b].add(new Node14621(a, c));
         }
         int ret = solve();
         for(int i = 1; i <= N;i++){
@@ -68,17 +68,17 @@ public class beakjoon14621 {
         System.out.println(ret);
     }
 }
-class Node1197 implements Comparable<Node1197>{
+class Node14621 implements Comparable<Node14621>{
     int to;
     int val;
 
-    public Node1197(int a, int b){
+    public Node14621(int a, int b){
         this.to = a;
         this.val = b;
     }
 
     @Override
-    public int compareTo(Node1197 o) {
+    public int compareTo(Node14621 o) {
         return this.val - o.val;
     }
 
