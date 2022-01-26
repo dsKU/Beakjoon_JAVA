@@ -11,12 +11,12 @@ public class beakjoon2665 {
     static int[] dy = {0,1,0,-1};
     static void Dijkstra(){
         val[0][0] = 0;
-        PriorityQueue<ab> q = new PriorityQueue<>();
-        q.add(new ab(0,0,0));
+        PriorityQueue<ab2665> q = new PriorityQueue<>();
+        q.add(new ab2665(0,0,0));
 
         
         while(!q.isEmpty()){
-            ab p = q.poll();
+            ab2665 p = q.poll();
             
             if(visited[p.a][p.b]) continue;
             visited[p.a][p.b] = true;
@@ -27,7 +27,7 @@ public class beakjoon2665 {
                 if(cx >= N || cx < 0 || cy >= N || cy < 0) continue;
                 if(val[cy][cx] > val[p.a][p.b] + map[cy][cx]){
                     val[cy][cx] = val[p.a][p.b] + map[cy][cx];
-                    q.add(new ab(cy,cx,val[cy][cx]));
+                    q.add(new ab2665(cy,cx,val[cy][cx]));
                 }
             }
         }
@@ -59,17 +59,17 @@ public class beakjoon2665 {
         sc.close();
     }
 }
-class ab implements Comparable<ab>{
+class ab2665 implements Comparable<ab2665>{
     int a;
     int b;
     int c;
-    public ab(int a, int b, int c){
+    public ab2665(int a, int b, int c){
         this.a = a;
         this.b = b;
         this.c = c;
     }
     @Override
-    public int compareTo(ab o) {
+    public int compareTo(ab2665 o) {
         return this.c - o.c;
     }
 }
