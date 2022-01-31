@@ -1,3 +1,4 @@
+package Tree;
 import java.io.*;
 import java.util.*;
 
@@ -5,7 +6,7 @@ import java.util.*;
 public class beakjoon2517 {
     static int N,M;
     static long[] tree;
-    static node2517[] arr;
+    static node2517_2[] arr;
 
     static void update(int node, int start, int end, int idx){
         if(idx < start || idx > end) return;
@@ -39,11 +40,11 @@ public class beakjoon2517 {
         
         int level = (int)Math.ceil(Math.log(N)/Math.log(2));
         tree = new long[(1 << level+1)+1];
-        arr = new node2517[N];
+        arr = new node2517_2[N];
 
         for(int i = 0 ; i < N; i++){
             int a = Integer.parseInt(br.readLine());
-            arr[i] = new node2517(i, a);
+            arr[i] = new node2517_2(i, a);
         }
         Arrays.sort(arr, (a,b)->b.val - a.val);
         for(int i = 0 ; i < N; i++){
@@ -63,10 +64,10 @@ public class beakjoon2517 {
 
     }
 }
-class node2517{
+class node2517_2{
     int idx;
     int val;
-    public node2517(int i, int a){
+    public node2517_2(int i, int a){
         idx = i;
         val = a;
     }
