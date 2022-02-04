@@ -1,4 +1,4 @@
-package Divide_And_Conquer;
+package BruteForce;
 import java.io.*;
 import java.util.*;
 /*
