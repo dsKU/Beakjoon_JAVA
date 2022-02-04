@@ -1,3 +1,4 @@
+package TopologicalSort;
 import java.io.*;
 import java.util.*;
 
@@ -14,7 +15,6 @@ public class beakjoon2056 {
 
             for(int i : graph[idx]){
                 indegree[i]--;
-                System.out.println(idx + " " + i + " " + DP[i] + " " + (DP[idx]+time[i]));
                 DP[i] = Math.max(DP[i], DP[idx] + time[i]);
 
                 if(indegree[i] == 0){
