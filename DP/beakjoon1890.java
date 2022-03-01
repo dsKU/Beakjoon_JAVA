@@ -2,14 +2,32 @@ package DP;
 import java.io.*;
 import java.util.*;
 public class beakjoon1890 {
+    static int N;
+    static int [][] map;
+    static long [][] dp;
+    static long solve(int y, int x){
+        if(y == N-1 && x == N-1) return 1;
+        if(dp[y][x] != 0) return dp[y][x];
+        if(map[y][x] == 0) return 0;
+        long ret = 0;
+        
+        if(y + map[y][x] < N){
+            ret += solve(y + map[y][x], x);
+        }
+        if(x + map[y][x] < N){
+            ret += solve(y, x + map[y][x]);
+        }
+
+        return dp[y][x] = ret;
+    }
     public static void main(String[] args) throws Exception {
         System.setIn(new FileInputStream("input.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int [][] map = new int[N][N];
-        long [][] dp = new long[N][N];
+        N = Integer.parseInt(st.nextToken());
+        map = new int[N][N];
+        dp = new long[N][N];
 
         dp[0][0] = 1;
         for(int i = 0 ; i < N ; i++){
