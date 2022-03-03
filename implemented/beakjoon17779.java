@@ -1,3 +1,5 @@
+package implemented;
+
 import java.io.*;
 import java.util.*;
 public class beakjoon17779 {
